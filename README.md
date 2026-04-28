@@ -16,20 +16,24 @@ Ikuti langkah-langkah berikut untuk menyiapkan lingkungan kerja di komputer Anda
 1. **Buat Virtual Environment:**
    ```powershell
    python -m venv v_env
-2. **Aktifkan Virtual Environment:**
-Windows (PowerShell): Jika muncul error Scripts is disabled, jalankan perintah ini terlebih dahulu:
+   ```
+2. **Aktifkan Virtual Environment:**  
+   Windows (PowerShell): Jika muncul error `Scripts is disabled`, jalankan perintah ini terlebih dahulu:
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-Lalu aktifkan dengan:
-  ```powershell
-  .\v_env\Scripts\activate
-3. **Aktifkan Virtual Environment:**
+   ```
+   Lalu aktifkan dengan:
+   ```powershell
+   .\v_env\Scripts\activate
+   ```
+3. **Install Library yang Dibutuhkan:**
    ```powershell
    pip install -r requirements.txt
-
-## Run Streamlit App
+   ```
+## **Run Streamlit App**
 ```powershell
-   python -m streamlit run dashboard/dashboard.py
+python -m streamlit run dashboard/dashboard.py
+```
 
 
 
