@@ -3,10 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Set page title
 st.set_page_config(page_title="Bike Sharing Dashboard", layout="wide")
 
-# 1. Load Data
 @st.cache_data
 def load_data():
     df = pd.read_csv("day.csv")
@@ -15,19 +13,15 @@ def load_data():
 
 day_df = load_data()
 
-# Sidebar - Filter Tahun
 st.sidebar.header("Filter Data")
 year_option = st.sidebar.selectbox("Pilih Tahun:", [2011, 2012])
 year_code = 0 if year_option == 2011 else 1
 
-# Filter dataframe
 main_df = day_df[day_df['yr'] == year_code]
 
-# Header Utama
 st.title("Bike Sharing Dashboard 🚲")
 st.markdown(f"Menampilkan data penyewaan sepeda untuk tahun **{year_option}**")
 
-# 2. Metric Cards (Ringkasan Angka)
 col1, col2, col3 = st.columns(3)
 with col1:
     total_rentals = main_df['cnt'].sum()
@@ -41,7 +35,6 @@ with col3:
 
 st.divider()
 
-# 3. Visualisasi 1: Tren Bulanan
 st.subheader("Tren Penyewaan Bulanan")
 monthly_trend = main_df.groupby(main_df['dteday'].dt.strftime('%B'))[['casual', 'registered']].sum().reindex(
     ['January', 'February', 'March', 'April', 'May', 'June', 
@@ -56,7 +49,6 @@ ax.legend()
 plt.xticks(rotation=45)
 st.pyplot(fig)
 
-# 4. Visualisasi 2: Penyewaan Berdasarkan Cuaca
 st.subheader("Pengaruh Cuaca Terhadap Penyewaan")
 weather_rentals = main_df.groupby('weathersit')['cnt'].mean().reset_index()
 weather_rentals['weathersit'] = weather_rentals['weathersit'].map({
