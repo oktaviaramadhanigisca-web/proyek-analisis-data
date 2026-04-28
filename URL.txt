@@ -1,0 +1,2 @@
+URL GitHub: https://github.com/oktaviaramadhanigisca-web/proyek-analisis-data.git
+URL Streamlit: https://bnmjnz3wksawjhsj3hnfhy.streamlit.app/
